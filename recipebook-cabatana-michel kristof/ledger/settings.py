@@ -1,0 +1,1 @@
+from recipebook.settings import *
