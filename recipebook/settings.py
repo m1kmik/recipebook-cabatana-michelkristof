@@ -109,6 +109,8 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
+USE_L10N = True
+
 USE_TZ = True
 
 
@@ -117,8 +119,14 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = BASE_DIR / 'media'
+
 LOGIN_REDIRECT_URL = "recipe_list"
 
 LOGOUT_REDIRECT_URL = "login"
 
 LOGIN_URL = "login"
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

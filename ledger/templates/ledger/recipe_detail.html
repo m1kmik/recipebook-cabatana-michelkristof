@@ -6,6 +6,17 @@
 {% block content %}
     <h2>Ingredients</h2>
     <p>Author: {{ recipe.author.name }}</p>
+    {% if recipe.images.exists %}
+        {% for image in image.image.all %}
+            <img src="{{ image.image.url }}" alt="{{ image.description }}">
+        {% endfor %}
+    {% else %}
+        <p> No Images here...</p>
+    {% endif %}
+    <p></p>
+    {% if user.is_authenticated %}
+        <a href="{% url 'add_image' recipe.pk %}">Add Image</a>
+    {% endif %}
     <ul>
         {% for ingredient in recipe.ingredients.all %}
             <li>{{ ingredient.quantity }} - {{ ingredient.ingredient.name }}</li>

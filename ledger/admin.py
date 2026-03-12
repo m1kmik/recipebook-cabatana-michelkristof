@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Profile, Ingredient, Recipe, RecipeIngredient
+from .models import Profile, Ingredient, Recipe, RecipeIngredient, RecipeImage
 
 
 
@@ -20,11 +20,13 @@ class RecipeAdmin(admin.ModelAdmin):
 class RecipeIngredientInline(admin.TabularInline):
     model = RecipeIngredient
 
+class RecipeImageInline(admin.TabularInline):
+    model = RecipeImage
 
 class RecipeWithInlineAdmin(admin.ModelAdmin):
+    model = Recipe
     list_display = ['name', 'author']
-    inlines = [RecipeIngredientInline]
-
+    inlines = [RecipeIngredientInline, RecipeImageInline]
 
 class IngredientAdmin(admin.ModelAdmin):
     model = Ingredient
