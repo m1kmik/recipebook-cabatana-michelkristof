@@ -1,0 +1,12 @@
+{% extends 'ledger/base.html' %}
+{% block title %}Recipe List{% endblock %}
+{% block page_heading %}All Recipes{% endblock %}
+{% block content %}
+    <ul>
+        {% for recipe in recipes %}
+            <li><a href="{{ recipe.get_absolute_url }}">{{ recipe.name }}</a></li>
+        {% empty %}
+            <li>No recipes here yet.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
